@@ -4,6 +4,7 @@ from .models import Session
 from .models import Seat
 from .models import Reservation
 from .models import Ticket
+from django.contrib.auth.models import User
 
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,3 +31,13 @@ class TicketSerializer(serializers.ModelSerializer):
         model = Ticket
         fields = '__all__'
 
+class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
+    
+    def create(self, validate_data):
+        user = User.objects.create_user(validate_data['username'], validate_data['email'], validate_data['password'])
+        return user
+        

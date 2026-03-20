@@ -2,7 +2,11 @@ from django.shortcuts import render
 
 from rest_framework import viewsets
 from .models import Movie, Session, Seat, Reservation, Ticket
-from .serializers import MovieSerializer, SessionSerializer, SeatSerializer, ReservationSerializer, TicketSerializer
+from .serializers import MovieSerializer, SessionSerializer, SeatSerializer, ReservationSerializer, TicketSerializer, UserSerializer
+from rest_framework.generics import CreateAPIView
+from rest_framework.permissions import AllowAny
+from django.contrib.auth.models import User
+
 # Create your views here.
 
 class MovieViewSet(viewsets.ModelViewSet):
@@ -24,4 +28,8 @@ class ReservationViewSet(viewsets.ModelViewSet):
 class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
-    
+
+class RegisterView(CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [AllowAny]

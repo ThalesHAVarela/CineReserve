@@ -32,6 +32,7 @@ class Seat(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 from django.contrib.auth.models import User
+
 from django.utils import timezone
 from datetime import timedelta
 
