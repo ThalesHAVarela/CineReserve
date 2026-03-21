@@ -4,9 +4,9 @@ from django.urls import path
 
 router = routers.DefaultRouter()
 router.register('movies', MovieViewSet)
-router.register('sessions', SessionViewSet)
+router.register('sessions', SessionViewSet, basename='session')
 router.register('seats', SeatViewSet)
 router.register('reservations', ReservationViewSet)
-router.register('tickets', TicketViewSet)
+router.register('tickets', TicketViewSet, basename= 'ticket')
 
 urlpatterns = router.urls

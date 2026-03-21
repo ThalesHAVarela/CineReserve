@@ -25,6 +25,8 @@ class Seat(models.Model):
         ('reserved', 'Reserved'),
         ('purchased', 'Purchased'),
     ]
+    class Meta:
+        unique_together = ('session', 'seat_number')
     session = models.ForeignKey(Session, on_delete=models.CASCADE)
     seat_number = models.IntegerField()
     seat_status = models.CharField(max_length=20, choices=STATUS_CHOICES, default= 'available')
