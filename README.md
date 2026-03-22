@@ -21,7 +21,7 @@ Projeto desenvolvido para o processo seletivo de estágio da B2BIT
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/cinereserve.git
+git clone https://github.com/ThalesHAVarela/cinereserve.git
 cd cinereserve
 ```
 
