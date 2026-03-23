@@ -10,7 +10,6 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-# Create your views here.
 
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()

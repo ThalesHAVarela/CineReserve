@@ -1,6 +1,11 @@
 from django.db import models
 
-# Create your models here.
+from django.contrib.auth.models import User
+
+from django.utils import timezone
+from datetime import timedelta
+
+import uuid
 
 class Movie(models.Model):
     title = models.CharField(max_length=255)
@@ -33,11 +38,6 @@ class Seat(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-from django.contrib.auth.models import User
-
-from django.utils import timezone
-from datetime import timedelta
-
 def get_expiry():
     return timezone.now() + timedelta(minutes=10)
 
@@ -55,7 +55,7 @@ class Reservation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-import uuid
+
 
 class Ticket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
